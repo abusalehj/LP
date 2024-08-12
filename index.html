@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="">
+    <title>Owned By psycho </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="shortcut icon" href="https://i.hizliresim.com/Y6kG0k.jpg">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-bg video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+        .typewriter {
+            display: inline-block;
+            color: red;
+            font: 15pt Courier New;
+            overflow: hidden;
+            border-right: 0.15em solid red;
+            white-space: nowrap;
+            animation: typing 12s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: red; }
+        }
+        .imagehold {
+            position: absolute;
+            bottom: 10px; /* Adjust the distance from the bottom as needed */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .imagehold img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false" bgcolor="black">
+
+    <div class="video-bg">
+        <video autoplay muted loop>
+            <source src="https://cdn.discordapp.com/attachments/1271987747225075712/1272356761915097169/savetik.mp4?ex=66baae13&is=66b95c93&hm=83fb2d0d0075431f9779871ae25fe13577f91b7e37b38a331e417a54522fb03f&"
+             type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="content">
+        <center><br><br>
+            <span class="typewriter"><b>psycho &L P  </b></span>
+            <div style="color:blue;font:12pt Courier New;"><b>  <font color="RED"> fuck bitch </font></b></div><br><br>
+            <audio autoplay>
+                <source src="https://cdn.discordapp.com/attachments/1271893270817013862/1272331883153199144/savetik.mp3?ex=66ba96e7&is=66b94567&hm=4542e3f0297837dd3366c3727021d856bcb28e7e0897f12d3d62a77030647d3f&" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </center>
+        <br><br>
+        <center><font color="black"> </font></center>
+        <br><br>
+        <div style="color:tEAL;">
+            <b>your ip :</b> <span id="ip-address-value">Fetching...</span><br>
+            <b>ip info:</b>
+            <pre id="ip-info">Fetching...</pre>
+        </div>
+    </div>
+
+    <div class="imagehold">
+        <img src=" alt="GIF">
+    </div>
+
+    <script type="text/javascript">
+        var omitformtags=["input", "textarea", "select"];
+        omitformtags=omitformtags.join("|");
+
+        function disableselect(e){
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
+                return false;
+        }
+
+        function reEnable(){
+            return true;
+        }
+
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function ("return false");
+        else {
+            document.onmousedown = disableselect;
+            document.onmouseup = reEnable;
+        }
+
+        function fetchIPAndInfo() {
+            fetch('https://api.ipify.org/?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address-value').textContent = data.ip;
+                    return data.ip;
+                })
+                .then(ip => fetch(`https://ipinfo.io/${ip}/json`))
+                .then(response => response.json())
+                .then(ipInfoData => {
+                    document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
+                    document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
+                });
+        }
+
+        fetchIPAndInfo();
+    </script>
+</body>
+</html>
